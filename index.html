@@ -15,8 +15,19 @@
         <div class="center">Will</div>
         <button class="side">About</button>
     </div>
-
     <div class="glide_container">
+    <div class="glide_header">DATA</div>
+    <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+            <div class="glide__slides">
+                <div class="glide__slide"><img src="photos/1.PNG"></div>
+                <div class="glide__slide"><img src="photos/2.PNG"></div>
+                <div class="glide__slide"><img src="photos/3.PNG"></div>
+                <div class="glide__slide"><img src="photos/4.PNG"></div>
+            </div>
+            </div>
+        </div>
+        <div class="glide_header">ACCESSIBILITY</div>
         <div class="glide">
             <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -26,25 +37,8 @@
                 <div class="glide__slide"><img src="photos/4.PNG"></div>
             </ul>
             </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
         </div>
-        <!-- <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                <div class="glide__slide"><img src="photos/1.PNG"></div>
-                <div class="glide__slide"><img src="photos/2.PNG"></div>
-                <div class="glide__slide"><img src="photos/3.PNG"></div>
-                <div class="glide__slide"><img src="photos/4.PNG"></div>
-            </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
-        </div>
+        <div class="glide_header">GAMES</div>
         <div class="glide">
             <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -54,18 +48,23 @@
                 <div class="glide__slide"><img src="photos/4.PNG"></div>
             </ul>
             </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
-        </div> -->
+        </div>
     </div>
-
-
 
 <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
 <script>
-  new Glide('.glide').mount()
+var sliders = document.querySelectorAll('.glide');
+
+for (var i = 0; i < sliders.length; i++) {
+  var glide = new Glide(sliders[i], {
+    type: 'carousel',
+    perView: 3,
+    focusAt: 2,
+    gap: 15
+  });
+
+  glide.mount();
+}
 </script>
 </body>
 </html>
