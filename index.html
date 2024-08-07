@@ -6,65 +6,93 @@
     <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
 <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
-    <title>William Alvarez</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+
+<title>William Alvarez</title>
+
 </head>
 <body>
-
-    <div class="navbar">
-        <button class="side">Contact</button>
-        <div class="center">Will</div>
-        <button class="side">About</button>
+    <section id="section1">
+    <div class="resumeWrapper">
+        <button class="resume">R&eacutesum&eacute</button>
     </div>
-    <div class="glide_container">
-    <div class="glide_header">DATA</div>
-    <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-            <div class="glide__slides">
-                <div class="glide__slide"><img src="photos/1.PNG"></div>
-                <div class="glide__slide"><img src="photos/2.PNG"></div>
-                <div class="glide__slide"><img src="photos/3.PNG"></div>
-                <div class="glide__slide"><img src="photos/4.PNG"></div>
-            </div>
-            </div>
-        </div>
-        <div class="glide_header">ACCESSIBILITY</div>
-        <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                <div class="glide__slide"><img src="photos/1.PNG"></div>
-                <div class="glide__slide"><img src="photos/2.PNG"></div>
-                <div class="glide__slide"><img src="photos/3.PNG"></div>
-                <div class="glide__slide"><img src="photos/4.PNG"></div>
-            </ul>
-            </div>
-        </div>
-        <div class="glide_header">GAMES</div>
-        <div class="glide">
-            <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                <div class="glide__slide"><img src="photos/1.PNG"></div>
-                <div class="glide__slide"><img src="photos/2.PNG"></div>
-                <div class="glide__slide"><img src="photos/3.PNG"></div>
-                <div class="glide__slide"><img src="photos/4.PNG"></div>
-            </ul>
-            </div>
+    <div class="topWrapper">
+        <button class="top"><i class="fa-solid fa-circle-arrow-up"></i></button>
+    </div>
+    <div class="title_container">
+        <div class="title_main">
+            <h1 id="William">WILLIAM</h1>
+            <h1 id="Alvarez">ALVAREZ</h1>
         </div>
     </div>
+    <div class="invertWrapper">
+        <button class="invert" id="invertButton">Night<br>Mode</button>
+    </div>
+    <div class="about">
+        <div class="about_header">Data Driven Software Developer</div>
+        <p class="about_paragraph">
+           William Alvarez is a data driven software developer, passionate about pushing the boundries of how data can used to enrich and save lives. They have projects building their own database and API for trading card games, creating accessibility programs for handicaped users, and converting some of their favorite boardgames to online games to play with friends.</p>
+    </div>
+    <a class="exploreTest" href="#section2">Explore</a>
+</section>
+<section></section>
+<section id="section2">holder
+    <a class="return" href="#section1">Return</a>
+    <div class="grid_container">
+        <div class="glide_container">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        <div class="glide__slide"><a href="#section3" id="project1">Project Name</a></div>
+                        <div class="glide__slide"><img src="photos/2.PNG"></div>
+                        <div class="glide__slide"><img src="photos/3.PNG"></div>
+                        <div class="glide__slide"><img src="photos/4.PNG"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <button id="prevButton"><i class="fa-solid fa-circle-arrow-left"></i></button>
+    <button id="nextButton"><i class="fa-solid fa-circle-arrow-right"></i></button>
+    </div>
 
+</section>
+<section></section>
+<section id="section3">
+</section>
+<script>
+    let button = document.getElementById('invertButton')
+    button.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-mode')
+})
+</script>
 <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
 <script>
-var sliders = document.querySelectorAll('.glide');
+var slider = document.querySelector('.glide');
+var nextButton = document.querySelector('#nextButton');
+var prevButton = document.querySelector('#prevButton');
 
-for (var i = 0; i < sliders.length; i++) {
-  var glide = new Glide(sliders[i], {
+
+var glide = new Glide(slider, {
     type: 'carousel',
-    perView: 3,
-    focusAt: 2,
-    gap: 15
-  });
+    perView: 1,
+    gap: '5px',
+});
 
-  glide.mount();
-}
+nextButton.addEventListener('click', function (event) {
+  glide.go('>');
+})
+prevButton.addEventListener('click', function (event) {
+  glide.go('<');
+})
+
+glide.mount();
 </script>
 </body>
 </html>
