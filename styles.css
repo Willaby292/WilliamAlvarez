@@ -25,6 +25,12 @@ Lightest
     --palletValue4: #efb11e;
     --palletValue4Shadow: #dda420;
     --palletValue5: #ece9e2;
+
+    --pallet1: #143109;
+    --pallet2: #aaae7f;
+    --pallet3: #d0d6b3;
+    --pallet4: #f7f7f7;
+    --pallet5: #efefef;
 }
 
 section {
@@ -316,7 +322,7 @@ background-size: 70% 0.1em;
     transform: translateY(4px);
   }
 
-.exploreTest {
+.explore {
     background-color: var(--palletValue3);/* have it move off the page*/
     width: 10%;
     height: 1.5em;
@@ -344,11 +350,11 @@ background-size: 70% 0.1em;
     transition: background-size 0.2s ease-in-out;
 }
 
-.exploreTest:hover {
+.explore:hover {
 background-size: 70% 0.1em;
 }
 
-.exploreTest:active {
+.explore:active {
     background-color: var(--palletValue3Shadow);
     box-shadow: 0 5px var(--palletValue2);
     transform: translateY(4px);
@@ -421,3 +427,197 @@ background-size: 70% 0.1em;
 #invertButton{
     cursor: pointer;
 }
+
+
+
+
+/**/
+
+
+/* pallet
+Darkest
+>> #143109
+>> #aaae7f
+>> #d0d6b3
+>> #f7f7f7
+>> #efefef
+Lightest
+*/
+
+.sidebar {
+    top: 80px; /* Position below the navbar */
+    left: 0;
+    width: 200px; /* Width of the sidebar */
+    height: calc(100vh - 60px); /* Full height below the navbar */
+    background-color: var(--pallet3); /* Yellow for sidebar */
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999; /* Ensure it is below the navbar */
+}
+
+.sidebar button {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: var(--pallet4); /* Darker yellow for buttons */
+    color: var(--pallet1); /* White text color */
+    border: none;
+    border-radius: 5px;
+}
+
+.sidebar button:hover {
+    background-color: var(--pallet3); /* Lighter yellow on hover */
+}
+
+.sidebar input[type="number"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid var(--pallet5);
+    border-radius: 5px;
+    width: 91%;
+}
+
+.circle-container {
+    position: relative;
+    top: 40px;
+    width: calc(100% - 200px); /* Adjust width for sidebar */
+    height: calc(100vh - 60px); /* Adjust height for navbar */
+    background-color: var(--pallet2); /* Light yellow-white background */
+    overflow: hidden; /* Prevent scrollbars */
+    margin-left: 225px; /* Adjust for sidebar width */
+    margin-top: 0; /* Ensure there's no top margin affecting positioning */
+}
+
+
+.circle {
+    position: absolute;
+    width: 40px; /* Larger circle */
+    height: 40px; /* Larger circle */
+    border-radius: 50%;
+    background-color: var(--pallet4);
+    border: 2px solid var(--pallet1); /* Black outline */
+    transition: background-color 0.3s;
+}
+
+.line {
+    position: absolute;
+    background-color: var(--pallet1);
+    height: 2px;
+    transform-origin: 0 0;
+    transition: opacity 0.3s;
+}
+
+.line.arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid var(--pallet1);
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+    transform-origin: 0 0;
+    background-color: transparent;
+}
+
+.line.arrow.UP {
+    height: 10px;
+    border-width: 0 2px 2px 2px;
+    transform: rotate(135deg);
+}
+
+.line.arrow.DOWN {
+    height: 10px;
+    border-width: 2px 2px 0 2px;
+    transform: rotate(-45deg);
+}
+
+.line.arrow.LEFT {
+    width: 10px;
+    border-width: 2px 2px 2px 0;
+    transform: rotate(225deg);
+}
+
+.line.arrow.RIGHT {
+    width: 10px;
+    border-width: 2px 0 2px 2px;
+    transform: rotate(45deg);
+}
+
+.project1GridContainer{
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows:repeat(20, 1fr);
+    height: 100%;
+    border: solid black 2px;
+}
+
+.project1Btn{
+    display: flex;
+    min-width: 45px;
+    box-shadow: 0px 10px 0px 0px var(--palletValue2);
+    border-radius: 25px;
+    border: none;
+    color: var(--palletValue5);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1em;
+    justify-content: center;
+    text-decoration: none;
+    padding-top: 1.2em;
+    padding-bottom: 0.5em;
+    cursor:pointer;
+    border: solid black 2px;
+}
+
+.project1Btn:active{ /*only works on first click :(*/
+    background-color: var(--palletValue3Shadow);
+    box-shadow: 0 5px var(--palletValue2);
+    transform: translateY(4px);
+}
+
+#record-poi-btn{
+    grid-row: 2;
+    grid-column: 2/4;
+    background-color: var(--palletValue3);
+}
+
+#done-recording-btn{
+    grid-row: 4;
+    grid-column: 2/4;
+    background-color: var(--palletValue4);
+}
+
+#generate-poi-btn{
+    grid-row: 6;
+    grid-column: 2/4;
+    background-color: var(--palletValue3);
+}
+
+#num-nodes{
+    grid-row: 8;
+    grid-column: 2/4;
+    background-color: var(--palletValue4);
+}
+
+#set-background-btn{
+    grid-row: 10;
+    grid-column: 2/4;
+    background-color: var(--palletValue3);
+
+}
+#clear-background-btn{
+    grid-row: 12;
+    grid-column: 2/4;
+    background-color: var(--palletValue4);
+
+}
+
+.circle-container{
+    grid-row: 1/20;
+    grid-column: 2/20;
+    border: solid black 2px;
+}
+

@@ -43,7 +43,7 @@
         <p class="about_paragraph">
            William Alvarez is a data driven software developer, passionate about pushing the boundries of how data can used to enrich and save lives. They have projects building their own database and API for trading card games, creating accessibility programs for handicaped users, and converting some of their favorite boardgames to online games to play with friends.</p>
     </div>
-    <a class="exploreTest" href="#section2">Explore</a>
+    <a class="explore" href="#section2">Explore</a>
 </section>
 <section></section>
 <section id="section2">holder
@@ -71,6 +71,15 @@
 </section>
 <section></section>
 <section id="section3">
+    <div class="project1GridContainer">
+        <button class="project1Btn" id="record-poi-btn">Record Points of Interest</button>
+        <button class="project1Btn" id="done-recording-btn">Done</button>
+        <button class="project1Btn" id="generate-poi-btn">Generate Random Points of Interest</button>
+        <input class="project1Btn" type="number" id="num-nodes" min="1" max="100">
+        <button class="project1Btn" id="set-background-btn">Set Background Image</button>
+        <button class="project1Btn" id="clear-background-btn">Clear Background</button>
+    <div id="circle-container" class="circle-container"></div>
+</div>
 </section>
 <script>
     let button = document.getElementById('invertButton')
@@ -100,5 +109,6 @@ prevButton.addEventListener('click', function (event) {
 
 glide.mount();
 </script>
+<script src="script.js"></script>
 </body>
 </html>
