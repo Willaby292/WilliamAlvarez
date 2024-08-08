@@ -70,16 +70,22 @@
 
 </section>
 <section></section>
-<section id="section3">
-    <div class="project1GridContainer">
-        <button class="project1Btn" id="record-poi-btn">Record Points of Interest</button>
-        <button class="project1Btn" id="done-recording-btn">Done</button>
-        <button class="project1Btn" id="generate-poi-btn">Generate Random Points of Interest</button>
-        <input class="project1Btn" type="number" id="num-nodes" min="1" max="100">
-        <button class="project1Btn" id="set-background-btn">Set Background Image</button>
-        <button class="project1Btn" id="clear-background-btn">Clear Background</button>
-    <div id="circle-container" class="circle-container"></div>
-</div>
+<section id="section3">holder
+    <div class="project1Container">
+        <div class="project1Sidebar">
+        <button id="record-poi-btn">Record Points of Interest</button>
+        <button id="done-recording-btn">Done</button>
+        <div class="generateRandomContainer">
+        <button  id="generate-poi-btn">Randomize</button>
+        <button id="addButton">+</button>
+        <button id="minusButton">-</button>
+        <input  type="number" id="num-nodes" min="1" max="100">
+        </div>
+        <button  id="set-background-btn">Set Background</button>
+        <button  id="clear-background-btn">Clear</button>
+        </div>
+        <div id="circle-container" class="circle-container"></div>
+    </div>
 </section>
 <script>
     let button = document.getElementById('invertButton')
