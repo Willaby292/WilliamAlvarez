@@ -15,8 +15,8 @@ class Node {
     createElement() {
         const div = document.createElement('div');
         div.classList.add('circle');
-        div.style.left = `${this.x - 20}px`; // Center the circle element
-        div.style.top = `${this.y - 20}px`; // Center the circle element
+        div.style.left = `${this.x - 10}px`; // Center the circle element
+        div.style.top = `${this.y - 10}px`; // Center the circle element
         document.getElementById('circle-container').appendChild(div);
         return div;
     }
@@ -25,7 +25,7 @@ class Node {
         this.neighbors[direction] = node;
     }
 
-    updateColor(color = '#f7f7f7') {
+    updateColor(color = 'transparent') {
         this.element.style.backgroundColor = color;
     }
 
@@ -48,7 +48,7 @@ class Node {
     createLineTo(neighbor) {
         const line = document.createElement('div');
         line.classList.add('line');
-        const radius = 20; // Circle radius
+        const radius = 10; // Circle radius
 
         const dx = neighbor.x - this.x;
         const dy = neighbor.y - this.y;
@@ -61,7 +61,7 @@ class Node {
 
         line.style.width = `${length}px`;
         line.style.height = '2px'; // Line thickness
-        line.style.backgroundColor = '#143109';
+        line.style.backgroundColor = '#e43d11';
         line.style.position = 'absolute';
         line.style.transform = `rotate(${angle}deg)`;
         line.style.transformOrigin = '0 0'; // Rotate from the start point
@@ -76,7 +76,7 @@ class Graph {
     constructor(nodes) {
         this.nodes = nodes;
         this.currentNode = this.nodes[0];
-        this.currentNode.updateColor('#143109');
+        this.currentNode.updateColor('#e43d11');
         this.currentNode.drawLines(this.currentNode); // Draw lines for initial node
     }
 
@@ -86,27 +86,10 @@ class Graph {
             this.currentNode.updateColor(); // Reset previous node color
             this.currentNode.drawLines(null); // Clear lines for previous node
             this.currentNode = nextNode;
-            this.currentNode.updateColor('#143109'); // Highlight new current node
+            this.currentNode.updateColor('#e43d11'); // Highlight new current node
             this.currentNode.drawLines(this.currentNode); // Draw lines for new current node
         }
     }
-}
-
-function createRandomPOI(screenWidth, screenHeight, numNodes) {
-    const nodeRadius = 20; // Circle radius
-    const maxX = screenWidth - 2 * nodeRadius; // Adjusted for the sidebar
-    const maxY = screenHeight - 2 * nodeRadius; // Adjusted for the navbar
-    const minX = 2 * nodeRadius
-    const minY = 2 * nodeRadius
-
-
-    const nodes = [];
-    for (let i = 0; i < numNodes; i++) {
-        const x = Math.floor(Math.random() * (maxX - minX) + minX);
-        const y = Math.floor(Math.random() * (maxY - minY) + minY);
-        nodes.push(new Node(x, y));
-    }
-    return nodes;
 }
 
 function findNeighborsHeatMap(nodes) {
@@ -149,8 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed');
 
     // Set default value for number of nodes
-    document.getElementById('num-nodes').value = 15;
-
     let graph = null;
 
     // Hard coded nodes (NODE ARRAY HERE)
@@ -166,22 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
         findNeighborsHeatMap(nodes);
         return nodes;
     }
-
-    document.getElementById('generate-poi-btn').addEventListener('click', function() {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const numNodes = parseInt(document.getElementById('num-nodes').value) || 20;
-
-        // Clear existing nodes and lines
-        const circleContainer = document.getElementById('circle-container');
-        circleContainer.innerHTML = '';
-
-        const nodes = createRandomPOI(screenWidth, screenHeight, numNodes);
-        findNeighborsHeatMap(nodes);
-        graph = new Graph(nodes);
-
-        console.log(`${numNodes} random points of interest generated.`);
-    });
 
     document.addEventListener('keydown', function(event) {
         if (!graph) return;
@@ -208,9 +173,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('record-poi-btn').addEventListener('click', function() {
         recording = true;
         recordCount = 0;
-        document.getElementById('record-poi-btn').style.boxShadow='0 1px var(--palletValue2)';
+        document.getElementById('record-poi-btn').style.boxShadow='0 1px var(--palletValue4Shadow)';
         document.getElementById('record-poi-btn').style.transform='translateY(2px)';
         document.getElementById('record-poi-btn').style.cursor='auto';
+        document.getElementById('record-poi-btn').disabled=true;
+
+        document.getElementById('clear-background-btn').style.boxShadow='0 1px var(--palletValue1Shadow)';
+        document.getElementById('clear-background-btn').style.transform='translateY(2px)';
+        document.getElementById('clear-background-btn').style.cursor='auto';
+        document.getElementById('clear-background-btn').disabled=true;
+
 
         // Clear existing graph
         const circleContainer = document.getElementById('circle-container');
@@ -225,6 +197,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('record-poi-btn').style.boxShadow='0 5px var(--palletValue4Shadow)';
         document.getElementById('record-poi-btn').style.transform='translateY(-2px)';
         document.getElementById('record-poi-btn').style.cursor='pointer';
+        document.getElementById('record-poi-btn').disabled=false;
+
+        document.getElementById('clear-background-btn').style.boxShadow='0 5px var(--palletValue1Shadow)';
+        document.getElementById('clear-background-btn').style.transform='translateY(-2px)';
+        document.getElementById('clear-background-btn').style.cursor='pointer';
+        document.getElementById('clear-background-btn').disabled=false;
+
+
         if (graph) {
             findNeighborsHeatMap(graph.nodes);
             graph.currentNode.drawLines(graph.currentNode); // Draw lines for the current node
@@ -235,8 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('circle-container').addEventListener('click', function(event) {
         if (recording && recordCount < 30) {
-            const x = event.clientX - 200; // Adjust for sidebar width
-            const y = event.clientY - 40; // Adjust for navbar height
+            const x = event.clientX; // Adjust for sidebar width
+            const y = event.clientY; // Adjust for navbar height
 
             if (x > 40 && y > 40) { // Ensure not overlapping with sidebar and navbar
                 const node = new Node(x, y);
@@ -251,22 +231,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const imageList = [
-        'images/image1.png',
-        'images/image2.png'  // Add more image paths here
+        '',
+        'images/image2.png'                   // Add more image paths here
     ];
     let currentImageIndex = 0;
 
-    document.getElementById('set-background-btn').addEventListener('click', function() {
+    document.getElementById('generate-examples-btn').addEventListener('click', function() {
         currentImageIndex = (currentImageIndex + 1) % imageList.length;
         const backgroundUrl = imageList[currentImageIndex];
         document.getElementById('circle-container').style.backgroundImage = `url(${backgroundUrl})`;
-        document.getElementById('circle-container').style.backgroundSize='contain';
+        document.getElementById('circle-container').style.backgroundRepeat='no-repeat';
+        document.getElementById('circle-container').style.backgroundSize= '100% 100%';
         console.log('Background image set to:', backgroundUrl);
-    });
-
-    document.getElementById('clear-background-btn').addEventListener('click', function() {
-        document.getElementById('circle-container').style.backgroundImage = '';
-        console.log('Background image cleared.');
     });
 
     // Load hardcoded nodes on page load
@@ -274,23 +250,11 @@ document.addEventListener('DOMContentLoaded', function() {
     graph = new Graph(nodes);
 });
 
-document.getElementById('set-background-btn').addEventListener('click', function() {
-    currentImageIndex = (currentImageIndex + 1) % imageList.length;
-    const backgroundUrl = imageList[currentImageIndex];
-    const circleContainer = document.getElementById('circle-container');
-    circleContainer.style.backgroundImage = `url(${backgroundUrl})`;
-    circleContainer.style.backgroundSize = 'contain'; // Ensure image fits within the container
-    circleContainer.style.backgroundRepeat = 'no-repeat'; // Prevent repeating
-    circleContainer.style.backgroundPosition = 'center center'; // Center image horizontally and vertically
-    console.log('Background image set to:', backgroundUrl);
-});
-
-
 document.getElementById('clear-background-btn').addEventListener('click', function() {
     const circleContainer = document.getElementById('circle-container');
-    circleContainer.style.backgroundImage = '';
-    circleContainer.style.backgroundSize = ''; // Reset the background size
-    circleContainer.style.backgroundRepeat = ''; // Reset the background repeat
-    circleContainer.style.backgroundPosition = ''; // Reset the background position
+
+    circleContainer.innerHTML = '';
+    graph = null;
+
     console.log('Background image cleared.');
 });
