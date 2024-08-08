@@ -208,9 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('record-poi-btn').addEventListener('click', function() {
         recording = true;
         recordCount = 0;
-        document.getElementById('record-poi-btn').style.backgroundColor = '#f7a3b5';
-        document.getElementById('record-poi-btn').style.boxShadow='0 5px var(--palletValue2)';
-        document.getElementById('record-poi-btn').style.transform='translateY(4px)';
+        document.getElementById('record-poi-btn').style.boxShadow='0 1px var(--palletValue2)';
+        document.getElementById('record-poi-btn').style.transform='translateY(2px)';
         document.getElementById('record-poi-btn').style.cursor='auto';
 
         // Clear existing graph
@@ -223,9 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('done-recording-btn').addEventListener('click', function() {
         recording = false;
-        document.getElementById('record-poi-btn').style.backgroundColor = '#ffa2b5';
-        document.getElementById('record-poi-btn').style.boxShadow='0 10px var(--palletValue2)';
-        document.getElementById('record-poi-btn').style.transform='translateY(0px)';
+        document.getElementById('record-poi-btn').style.boxShadow='0 5px var(--palletValue4Shadow)';
+        document.getElementById('record-poi-btn').style.transform='translateY(-2px)';
         document.getElementById('record-poi-btn').style.cursor='pointer';
         if (graph) {
             findNeighborsHeatMap(graph.nodes);
