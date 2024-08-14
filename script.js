@@ -139,19 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set default value for number of nodes
     let graph = null;
 
-    // Hard coded nodes (NODE ARRAY HERE)
-    // const hardCodedNodes = [
-    //     { x: 100, y: 100 },
-    //     { x: 200, y: 150 },
-    //     { x: 300, y: 200 },
-    //     { x: 400, y: 250 }
-    // ];
-
-    // function createHardCodedNodes(nodesArray) {
-    //     const nodes = nodesArray.map(node => new Node(node.x, node.y));
-    //     findNeighborsHeatMap(nodes);
-    //     return nodes;
-    // }
+    function createHardCodedNodes(nodesArray) {
+        const nodes = nodesArray.map(node => new Node(node.x, node.y));
+        findNeighborsHeatMap(nodes);
+        return nodes;
+    }
 
     document.addEventListener('keydown', function(event) {
         if (!graph) return;
@@ -231,24 +223,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const imageList = [
         '',
-        'images/image2.png'                   // Add more image paths here
+        'images/1.png',
+        'images/2.PNG',
+        'images/3.jpeg'
     ];
     let currentImageIndex = 0;
 
     document.getElementById('generate-examples-btn').addEventListener('click', function() {
+        const circleContainer = document.getElementById('circle-container');
+        circleContainer.innerHTML = '';
+        graph = null;
+
         currentImageIndex = (currentImageIndex + 1) % imageList.length;
         const backgroundUrl = imageList[currentImageIndex];
         document.getElementById('circle-container').style.backgroundImage = `url(${backgroundUrl})`;
         document.getElementById('circle-container').style.backgroundRepeat='no-repeat';
         document.getElementById('circle-container').style.backgroundSize= '100% 100%';
-        document.getElementById('circle-container').style.backgroundRepeat='no-repeat';
-        document.getElementById('circle-container').style.backgroundSize= '100% 100%';
         console.log('Background image set to:', backgroundUrl);
     });
 
-    // Load hardcoded nodes on page load
-    const nodes = createHardCodedNodes(hardCodedNodes);
-    graph = new Graph(nodes);
+
 });
 
 document.getElementById('clear-background-btn').addEventListener('click', function() {

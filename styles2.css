@@ -33,6 +33,8 @@
     --palletValue5: #ece9e2;
 }
 
+html {scroll-behavior: smooth;}
+
 body {
     padding: 0;
     margin: 0;
@@ -40,7 +42,6 @@ body {
     font-family: "Open Sans", sans-serif;
     overflow-x: hidden;
     background-color: var(--palletValue5);
-    scroll-behavior: smooth;
 }
 
 button{
@@ -292,8 +293,8 @@ background-size: 70% 0.1em;
 /*project 1 begins here */
 .circle {
     position: absolute;
-    width: 40px; /* Larger circle */
-    height: 40px; /* Larger circle */
+    width: 2vw; /* Larger circle */
+    aspect-ratio: 1/1;
     border-radius: 50%;
     border: 2px solid black; /* Black outline */
     transition: background-color 0.3s;
@@ -384,11 +385,11 @@ background-size: 70% 0.1em;
 
 #record-poi-btn{
     display:inline-block;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: var(--palletValue4);
     box-shadow: 0px 5px 0px var(--palletValue4Shadow);
-    width: 2.5vw;
-    aspect-ratio: 1/1;
+    width: 5vw;
+    aspect-ratio: 2/1;
     font-size: 1em;
     border: none;
     transform: translateY(-2px);
@@ -408,11 +409,11 @@ background-size: 70% 0.1em;
 
 #done-recording-btn{
     display:inline-block;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: var(--palletValue3);
     box-shadow: 0px 5px 0px var(--palletValue3Shadow);
-    width: 2.5vw;
-    aspect-ratio: 1/1;
+    width: 5vw;
+    aspect-ratio: 2/1;
     font-size: 1em;
     border: none;
     transform: translateY(-2px);
@@ -437,9 +438,9 @@ background-size: 70% 0.1em;
     font-size: 1.5em;
 }
 
-#generate-poi-btn{
+#generate-examples-btn{
     display:inline-block;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: var(--palletValue2);
     box-shadow: 0px 5px 0px var(--palletValue2Shadow);
     width: 2.5vw;
@@ -470,7 +471,7 @@ background-size: 70% 0.1em;
 
 #clear-background-btn{
     display:inline-block;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: var(--palletValue1);
     box-shadow: 0px 5px 0px var(--palletValue1Shadow);
     width: 2.5vw;
