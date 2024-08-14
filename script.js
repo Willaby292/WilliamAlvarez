@@ -17,6 +17,8 @@ class Node {
         div.classList.add('circle');
         div.style.left = `${this.x - 10}px`; // Center the circle element
         div.style.top = `${this.y - 10}px`; // Center the circle element
+        div.style.left = `${this.x - 10}px`; // Center the circle element
+        div.style.top = `${this.y - 10}px`; // Center the circle element
         document.getElementById('circle-container').appendChild(div);
         return div;
     }
@@ -25,6 +27,7 @@ class Node {
         this.neighbors[direction] = node;
     }
 
+    updateColor(color = 'transparent') {
     updateColor(color = 'transparent') {
         this.element.style.backgroundColor = color;
     }
@@ -49,6 +52,7 @@ class Node {
         const line = document.createElement('div');
         line.classList.add('line');
         const radius = 10; // Circle radius
+        const radius = 10; // Circle radius
 
         const dx = neighbor.x - this.x;
         const dy = neighbor.y - this.y;
@@ -61,6 +65,7 @@ class Node {
 
         line.style.width = `${length}px`;
         line.style.height = '2px'; // Line thickness
+        line.style.backgroundColor = '#e43d11';
         line.style.backgroundColor = '#e43d11';
         line.style.position = 'absolute';
         line.style.transform = `rotate(${angle}deg)`;
@@ -77,6 +82,7 @@ class Graph {
         this.nodes = nodes;
         this.currentNode = this.nodes[0];
         this.currentNode.updateColor('#e43d11');
+        this.currentNode.updateColor('#e43d11');
         this.currentNode.drawLines(this.currentNode); // Draw lines for initial node
     }
 
@@ -86,6 +92,7 @@ class Graph {
             this.currentNode.updateColor(); // Reset previous node color
             this.currentNode.drawLines(null); // Clear lines for previous node
             this.currentNode = nextNode;
+            this.currentNode.updateColor('#e43d11'); // Highlight new current node
             this.currentNode.updateColor('#e43d11'); // Highlight new current node
             this.currentNode.drawLines(this.currentNode); // Draw lines for new current node
         }
@@ -213,6 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (recording && recordCount < 30) {
             const x = event.clientX; // Adjust for sidebar width
             const y = event.clientY; // Adjust for navbar height
+            const x = event.clientX; // Adjust for sidebar width
+            const y = event.clientY; // Adjust for navbar height
 
             if (x > 40 && y > 40) { // Ensure not overlapping with sidebar and navbar
                 const node = new Node(x, y);
@@ -229,13 +238,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageList = [
         '',
         'images/image2.png'                   // Add more image paths here
+        '',
+        'images/image2.png'                   // Add more image paths here
     ];
     let currentImageIndex = 0;
 
     document.getElementById('generate-examples-btn').addEventListener('click', function() {
+    document.getElementById('generate-examples-btn').addEventListener('click', function() {
         currentImageIndex = (currentImageIndex + 1) % imageList.length;
         const backgroundUrl = imageList[currentImageIndex];
         document.getElementById('circle-container').style.backgroundImage = `url(${backgroundUrl})`;
+        document.getElementById('circle-container').style.backgroundRepeat='no-repeat';
+        document.getElementById('circle-container').style.backgroundSize= '100% 100%';
         document.getElementById('circle-container').style.backgroundRepeat='no-repeat';
         document.getElementById('circle-container').style.backgroundSize= '100% 100%';
         console.log('Background image set to:', backgroundUrl);
