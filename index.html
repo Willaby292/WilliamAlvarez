@@ -1,128 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
 
+    <title>William Alvarez</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-
-<title>William Alvarez</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <section id="section1">
-    <div class="lightWrapper">
-        <img id="invertButton" src="lightbulb.png">
-    </div>
-    <div class="resumeWrapper">
-        <button class="resume">R&eacutesum&eacute</button>
-    </div>
-    <div class="topWrapper">
-        <a class="top" href="#section1"><i class="fa-solid fa-circle-arrow-up"></i></a>
-    </div>
-    <div class="title_container">
-        <div class="title_main">
-            <h1 id="William">WILLIAM</h1>
-            <h1 id="Alvarez">ALVAREZ</h1>
+    <section id="section-1">
+        <div class="light-bulb-container">
+            <img id="invert-btn" src="lightbulb.png">
         </div>
-    </div>
-    <!-- <div class="invertWrapper">
-        <button class="invert" id="invertButton">Night<br>Mode</button>
-    </div> -->
-    <div class="about">
-        <div class="about_header">Data Driven Software Developer</div>
-        <p class="about_paragraph">
-           William Alvarez is a data driven software developer, passionate about pushing the boundries of how data can used to enrich and save lives. They have projects building their own database and API for trading card games, creating accessibility programs for handicaped users, and converting some of their favorite boardgames to online games to play with friends.</p>
-    </div>
-    <a class="explore" href="#section2">Explore</a>
-</section>
-<section></section>
-<section id="section2">holder
-    <!-- <a class="return" href="#section1">Return</a> -->
-    <div class="headerWrapper">
-        <div class="about_header">What I'm working on (besides this website)</div>
-    </div>
-    <div class="grid_container">
-        <div class="glide_container">
-            <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <div class="glide__slides">
-                        <div class="glide__slide"><a href="#section3" id="project1">Project Name</a></div>
-                        <div class="glide__slide"><img src="photos/2.PNG"></div>
-                        <div class="glide__slide"><img src="photos/3.PNG"></div>
-                        <div class="glide__slide"><img src="photos/4.PNG"></div>
-                    </div>
+
+        <div class="resume-container drop-tab">
+            <button class="resume underline">R&eacutesum&eacute</button>
+        </div>
+        
+        <div class="back-to-top-container drop-tab">
+            <a class="back-to-top" href="#section1"><i class="fa-solid fa-circle-arrow-up"></i></a>
+        </div>
+        
+        <div class="title-main">
+            <div id="William">WILLIAM</div>
+            <div id="Alvarez">ALVAREZ</div>
+        </div>
+        
+        <div class="about-container">
+            <div class="about_header">Data Driven Software Developer</div>
+            <p class="about_paragraph">
+            William Alvarez is a data driven software developer, passionate about pushing the boundries of how data can used to enrich and save lives. They have projects building their own database and API for trading card games, creating accessibility programs for handicaped users, and converting some of their favorite boardgames to online games to play with friends.</p>
+        </div>
+        
+        <a class="explore decorated-btn" href="#section-2">Explore</a>
+    
+    </section>
+    <section id="section-2">
+        <div class="projects-container">
+            <a class="project-thumbnail" href="#section-3"></a>
+            <a class="project-thumbnail" href="#section-4"></a>
+            <a class="project-thumbnail" href="#section-5"></a>
+            <a class="project-thumbnail" href="#section-6"></a>
+            <a class="project-thumbnail" href="#section-7"></a>
+            <a class="project-thumbnail" href="#section-8"></a>
+            <a class="project-thumbnail" href="#section-9"></a>
+            <a class="project-thumbnail" href="#section-10"></a>
+            <a class="project-thumbnail" href="#section-11"></a>
+        </div>
+    </section>
+    <section id="section-3">
+        <div class="project1Container">
+            <div class="project1HBar">
+                <div class="project1Header">Keyboard Navigator</div>
+                
+                <div class="project1Blurb">This is a demonstration of my screen navigator which allows users to navigate their mosed used areas on screen with their keyboard. Useful for people who cannot use a mouse. </div>
+                
+                <div class="recordContainer">
+                    <div id="Try-it-out">Try it yourself</div>
+                    <button id="record-poi-btn">*</button>
+                    <button id="done-recording-btn">*</button>
+                </div>
+                
+                <div class="exampleContainer">
+                    <div id="examplesText">Examples</div>
+                    <button  id="generate-poi-btn">*</button>
+                </div>
+                
+                <div class="clearContainer">
+                    <div id="clearText">Clear</div>
+                    <button  id="clear-background-btn">*</button>
                 </div>
             </div>
-    </div>
-    <button id="prevButton"><i class="fa-solid fa-circle-arrow-left"></i></button>
-    <button id="nextButton"><i class="fa-solid fa-circle-arrow-right"></i></button>
-    </div>
-
-</section>
-<section></section>
-<section id="section3">holder
-    <div class="project1Container">
-        <div class="project1HBar">
-        <div class="project1Header">Keyboard Navigator</div>
-        <div class="project1Blurb">This is a demonstration of my screen navigator which allows users to navigate their mosed used areas on screen with their keyboard. Useful for people who cannot use a mouse. </div>
-        <div class="recordContainer">
-            <div id="Try-it-out">Try it yourself</div>
-            <button id="record-poi-btn">*</button>
-            <button id="done-recording-btn">*</button>
+            
+            <div id="circle-container" class="circle-container"></div>
+            
+            <div class="project1Footer">Download the tool at <a href="https://github.com/Willaby292/UIGraph">github.com/Willaby292/UIGraph</a>.</div>
         </div>
-        <div class="exampleContainer">
-            <div id="examplesText">Examples</div>
-            <button  id="generate-poi-btn">*</button>
-        </div>
-        <!-- <input  type="number" id="num-nodes" min="1" max="100"> -->
-        <!-- <button  id="set-background-btn">Set Background</button> -->
-        <div class="clearContainer">
-            <div id="clearText">Clear</div>
-            <button  id="clear-background-btn">*</button>
-        </div>
-        </div>
-        <div id="circle-container" class="circle-container"></div>
-        <div class="project1Footer">Download the tool at <a href="https://github.com/Willaby292/UIGraph">github.com/Willaby292/UIGraph</a>.</div>
-    </div>
-</section>
-<script>
-    let button = document.getElementById('invertButton')
-    button.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark-mode')
-})
-</script>
-<script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
-<script>
-var slider = document.querySelector('.glide');
-var nextButton = document.querySelector('#nextButton');
-var prevButton = document.querySelector('#prevButton');
-
-
-var glide = new Glide(slider, {
-    type: 'carousel',
-    perView: 1,
-    gap: '5px',
-});
-
-nextButton.addEventListener('click', function (event) {
-  glide.go('>');
-})
-prevButton.addEventListener('click', function (event) {
-  glide.go('<');
-})
-
-glide.mount();
-</script>
+    </section>
+    <section id="section-4"></section>
+    <section id="section-5"></section>
+    <section id="section-6"></section>
+    <section id="section-7"></section>
+    <section id="section-8"></section>
+    <section id="section-9"></section>
+    <section id="section-10"></section>
+    <section id="section-11"></section>
 <script src="script.js"></script>
 </body>
 </html>
