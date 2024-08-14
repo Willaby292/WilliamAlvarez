@@ -52,7 +52,7 @@ button{
 
 
 section {
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
 }
 
@@ -119,6 +119,8 @@ section {
 .resume {
     color: var(--palletValue5);
 
+    margin: auto;
+
     font-weight: 700;
     font-style: italic;
     font-size: 1.5em;
@@ -133,9 +135,10 @@ section {
 
 }
 
-.resume:hover {
+.resume:hover{
     background-size: 100% 0.1em;
 }
+
 
 .back-to-top-container{
     position: fixed;
@@ -364,7 +367,7 @@ background-size: 70% 0.1em;
 }
 
 .project1Blurb{
-    width: 80vw;
+    width: 85vw;
     margin-left: 10vw;
     text-align: center;
     color: var(--palletValue1);

@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('circle-container').addEventListener('click', function(event) {
-        if (recording && recordCount < 30) {
+        if (recording && recordCount < 200) {
             const x = event.offsetX; // Adjust for sidebar width
             const y = event.offsetY; // Adjust for navbar height
 
@@ -262,3 +262,8 @@ window.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
 }, false);
+
+let button = document.getElementById('invert-btn')
+    button.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-mode')
+});
