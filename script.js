@@ -267,3 +267,68 @@ let button = document.getElementById('invert-btn')
     button.addEventListener('click', () => {
   document.documentElement.classList.toggle('dark-mode')
 });
+
+
+var _startX = 0;
+var _startY = 0;
+var _offsetX = 0;
+var _offsetY = 0;
+var _dragElement;
+document.onmousedown = OnMouseDown;
+document.onmouseup = OnMouseUp;
+
+function OnMouseDown(event){
+  element = document.getElementById('image-container');
+  document.onmousemove = OnMouseMove;
+  if (element.matches(':hover')){
+  console.log(element)
+  _startX = event.clientX;
+  _startY = event.clientY;
+  _offsetX = document.getElementById('div1').offsetLeft;
+  _offsetY = document.getElementById('div1').offsetTop;
+  _dragElement = document.getElementById('div1');
+  }
+}
+
+function OnMouseMove(event){
+  _dragElement.style.left = (_offsetX + event.clientX - _startX) + 'px';
+  _dragElement.style.top = (_offsetY + event.clientY - _startY) + 'px';
+}
+
+function OnMouseUp(event){
+  document.onmousemove = null;
+  _dragElement=null;
+}
+
+const img = document.getElementById('zoomable-image');
+const container = document.getElementById('image-container');
+let startX, startY, imgX = 0, imgY = 0, zoomLevel = 1;
+function zoomImage(direction) {
+            if (direction === 'in') {
+                zoomLevel += 0.2;
+            } else if (direction === 'out') {
+                zoomLevel = Math.max(0.7, zoomLevel - 0.2); // Prevent zooming out below the original size
+            }
+
+            // Adjust image position to ensure it doesn't go out of bounds after zooming
+            imgX = Math.max(Math.min(imgX, 0), container.clientWidth - img.width * zoomLevel);
+            imgY = Math.max(Math.min(imgY, 0), container.clientHeight - img.height * zoomLevel);
+
+            img.style.transform = `translate(${imgX}px, ${imgY}px) scale(${zoomLevel})`;
+        }
+
+        function resetImage() {
+            // Reset zoom level
+            zoomLevel = 1;
+
+            // Recalculate the centered position
+            imgX = (container.clientWidth - img.width) / 2;
+
+            // Apply the center position with the default zoom level
+            img.style.transform = `translate(${imgX}px, ${0}px) scale(${zoomLevel})`;
+        }
+
+        // Center the image when the page loads
+        window.onload = () => {
+            resetImage();
+        };

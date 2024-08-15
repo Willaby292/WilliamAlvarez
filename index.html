@@ -44,15 +44,15 @@
     </section>
     <section id="section-2">
         <div class="projects-container">
-            <a class="project-thumbnail" href="#section-3"></a>
-            <a class="project-thumbnail" href="#section-3"><img src="thumbnails/MouseFree.png"></a>
-            <a class="project-thumbnail" href="#section-5"></a>
-            <a class="project-thumbnail" href="#section-6"></a>
-            <a class="project-thumbnail" href="#section-4"><img src="thumbnails/UnderConstruction.png"></a>
-            <a class="project-thumbnail" href="#section-8"></a>
-            <a class="project-thumbnail" href="#section-9"></a>
-            <a class="project-thumbnail" href="#section-10"><img src="thumbnails/UnderConstruction.png"></a>
-            <a class="project-thumbnail" href="#section-11"></a>
+            <a class="project-thumbnail"></a>
+            <a class="project-thumbnail" href="#section-3"><img class="thumbnail" src="thumbnails/MouseFree.png"></a>
+            <a class="project-thumbnail"></a>
+            <a class="project-thumbnail"></a>
+            <a class="project-thumbnail" href="#section-4"><img class="thumbnail" src="thumbnails/TCGDataHouse.png"></a>
+            <a class="project-thumbnail"></a>
+            <a class="project-thumbnail"></a>
+            <a class="project-thumbnail"><img class="thumbnail" src="thumbnails/UnderConstruction.png"></a>
+            <a class="project-thumbnail"></a>
         </div>
     </section>
     <section id="section-3">
@@ -60,7 +60,7 @@
             <div class="project1HBar">
                 <div class="project1Header">Mouse Free</div>
 
-                <div class="project1Blurb">This is a demonstration of my screen navigator which allows users to navigate their mosed used areas on screen with their keyboard. Click the example button to show a screen where this could be useful and add the points of interest yourself. </div>
+                <div class="project1Blurb">This is a demonstration of my screen navigator which allows users to navigate their most used areas on screen with the arrow keys. Click the example button to show a screen where this could be useful and add the points of interest yourself. </div>
 
                 <div class="recordContainer">
                     <div id="Try-it-out">Try it yourself</div>
@@ -84,7 +84,7 @@
             <div class="project1Footer">Download the tool at <a href="https://github.com/Willaby292/UIGraph" target="_blank" rel="noopener noreferrer">github.com/Willaby292/UIGraph</a>.</div>
         </div>
     </section>
-    <section id="section-4">
+    <!-- <section id="section-4">
         <div class="project2Container">
                 <div class="project2Header">TCG Data House</div>
 
@@ -98,16 +98,33 @@
                     <img src="https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77bbdd24dc2f7f8a790284fc0ef610338dddd2007de7f8348648492d6224594a.png" alt="Hearthstone Card" class="card-image">
                 </div>
             </div>
+            <div class="under-construction">
+                The front end search functionality is still under under construction.
+            </div>
 
         </div>
+    </section> -->
+    <section id="section-4">
+        <div class="project2-containter">
+            <div class="project2Header">TCG Data House*</div>
+            <div id="tempBlurb">This schema will be replaced with a front end search engine when complete. For now this is the schema of the database I created for hearthstone. You can find all the code <a href="https://github.com/Willaby292/tcgDataBase">here</a>.</div>
+            <div class="image-container" id="image-container">
+              <div class="div1" id="div1">
+                <img id="zoomable-image" src="images/schema.PNG">
+            </div>
+          </div>
+          <div class="zoom-buttons">
+            <button class="zoom"  onclick="zoomImage('in')">Zoom +</button>
+            <button class="zoom" onclick="zoomImage('out')">Zoom -</button>
+        </div>
+        </div>
     </section>
-    <!-- <section id="section-5"></section>
-    <section id="section-6"></section>
-    <section id="section-7"></section>
-    <section id="section-8"></section>
-    <section id="section-9"></section>
-    <section id="section-10"></section>
-    <section id="section-11"></section> -->
+    <!-- <section id="section-6"></section> -->
+    <!-- <section id="section-7"></section> -->
+    <!-- <section id="section-8"></section> -->
+    <!-- <section id="section-9"></section> -->
+    <!-- <section id="section-10"></section> -->
+    <!-- <section id="section-11"></section> -->
 <script src="script.js"></script>
 </body>
 </html>
