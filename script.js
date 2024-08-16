@@ -223,7 +223,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const imageList = [
         '',
-        'images/1.png',
         'images/2.PNG',
         'images/3.jpeg'
     ];
